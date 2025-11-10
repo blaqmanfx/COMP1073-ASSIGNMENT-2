@@ -3,9 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>The Smoothie Dispenser Machine</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <script src="JS/script.js" defer></script>
 </head>
 <body>
+      <!-- Container for the main Application  -->
+       <div class="Container">
+        <header>
+            <h1>The Smoothie Dispenser Machine</h1>
+            <p class="tagline">Make your choose of a Perfect Smoothie</p>
+        </header>
+        <!-- Main content area with the form and output -->
+         <div class="content-wrapper">
+            <section class="order-section"></section><h2>Build Your Smoothie</h2>
+                
+                <form id="smoothieForm">
+                    <!-- Size selection -->
+                    <div class="form-group">
+                        <label for="size">Size:</label>
+                        <select id="size" name="size" required>
+                            <option value="">Select a size</option>
+                            <option value="small" data-price="6.99">Small (12oz) - $6.99</option>
+                            <option value="medium" data-price="8.99">Medium (16oz) - $8.99</option>
+                            <option value="large" data-price="10.99">Large (24oz) - $10.99</option>
+                            <option value="xlarge" data-price="10.99">xlarge (28oz) - $12.99</option>
+                        </select>
+                    </div>
+
+                    <!-- Base selection -->
+                    <div class="form-group">
+                        <label for="base">Base:</label>
+                        <select id="base" name="base" required>
+                            <option value="">Choose your base</option>
+                            <option value="almond-milk" data-price="1.50">Almond Milk (+$1.50)</option>
+                            <option value="coconut-milk" data-price="1.50">Coconut Milk (+$1.50)</option>
+                            <option value="oat-milk" data-price="1.50">Oat Milk (+$1.50)</option>
+                            <option value="regular-milk" data-price="0.50">Regular Milk (+$0.50)</option>
+                            <option value="orange-juice" data-price="1.25">Orange Juice (+$1.25)</option>
+                            <option value="apple-juice" data-price="1.25">Apple Juice (+$1.25)</option>
+                            <option value="water" data-price="0.00">Water (Free)</option>
+                        </select>
+                    </div>
+
+                    <!-- Fruit selection (checkboxes) -->
+                    <div class="form-group">
+                        <label>Fruits (Select up to 4):</label>
+                        <div class="checkbox-grid">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="fruits" value="strawberry" data-price="0.75">
+                                <span>🍓 Strawberry (+$0.75)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="fruits" value="banana" data-price="0.50">
+                                <span>🍌 Banana (+$0.50)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="fruits" value="blueberry" data-price="0.85">
+                                <span>🫐 Blueberry (+$0.85)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="fruits" value="mango" data-price="0.95">
+                                <span>🥭 Mango (+$0.95)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="fruits" value="pineapple" data-price="0.80">
+                                <span>🍍 Pineapple (+$0.80)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="fruits" value="peach" data-price="0.70">
+                                <span>🍑 Peach (+$0.70)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="fruits" value="raspberry" data-price="0.90">
+                                <span>🫐 Raspberry (+$0.90)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="fruits" value="kiwi" data-price="0.75">
+                                <span>🥝 Kiwi (+$0.75)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Protein/Boost selection -->
+                    <div class="form-group">
+                        <label>Protein & Boosts (Optional):</label>
+                        <div class="checkbox-grid">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="boosts" value="protein-powder" data-price="1.50">
+                                <span>💪 Protein Powder (+$1.50)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="boosts" value="chia-seeds" data-price="0.75">
+                                <span>🌱 Chia Seeds (+$0.75)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="boosts" value="flax-seeds" data-price="0.75">
+                                <span>🌾 Flax Seeds (+$0.75)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="boosts" value="peanut-butter" data-price="0.95">
+                                <span>🥜 Peanut Butter (+$0.95)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="boosts" value="spinach" data-price="0.50">
+                                <span>🥬 Spinach (+$0.50)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="boosts" value="kale" data-price="0.50">
+                                <span>🥬 Kale (+$0.50)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Sweetener selection -->
+                    <div class="form-group">
+                        <label for="sweetener">Sweetener (Optional):</label>
+                        <select id="sweetener" name="sweetener">
+                            <option value="none" data-price="0.00">None</option>
+                            <option value="honey" data-price="0.50">Honey (+$0.50)</option>
+                            <option value="agave" data-price="0.50">Agave (+$0.50)</option>
+                            <option value="stevia" data-price="0.25">Stevia (+$0.25)</option>
+                            <option value="maple-syrup" data-price="0.75">Maple Syrup (+$0.75)</option>
+                        </select>
+                    </div>
+
+                    <!-- Ice level -->
+                    <div class="form-group">
+                        <label for="ice">Ice Level:</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="ice" value="light" required>
+                                <span>Light</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="ice" value="regular" checked>
+                                <span>Regular</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="ice" value="extra">
+                                <span>Extra</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Customer name -->
+                    <div class="form-group">
+                        <label for="customerName">Name for Order:</label>
+                        <input type="text" id="customerName" name="customerName" placeholder="Enter your name" required>
+                    </div>
+
+                    <!-- Submit button -->
+                    <button type="submit" class="order-button">
+                        🎉 Create My Smoothie!
+                    </button>
+                </form>
+            </section>
+
+            <!-- Output section for displaying the smoothie order -->
+            <section class="output-section" id="outputSection">
+                <h2>Your Smoothie</h2>
+                <div id="smoothieOutput" class="smoothie-display">
+                    <p class="placeholder-text">Your delicious smoothie will appear here! 🥤</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2025 The Smoothie Machine | Fresh. Healthy. Delicious.</p>
+        </footer>
+    </div>
     
 </body>
 </html>
