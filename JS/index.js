@@ -98,4 +98,48 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     }
 
+    // Display the smoothie order
+    function displaySmoothieOrder(order) {
+        const fruitsList = order.fruits.map(f => `${f.name} (+$${f.price.toFixed(2)})`).join(', ');
+        const boostsList = order.boosts.length > 0 
+            ? order.boosts.map(b => `${b.name} (+$${b.price.toFixed(2)})`).join(', ')
+            : 'None';
         
+        const orderHTML = `
+            <div class="smoothie-details">
+                <h3>🥤 Order for: ${order.customerName}</h3>
+                
+                <div class="detail-item">
+                    <strong>Size:</strong> ${order.size} - $${order.sizePrice.toFixed(2)}
+                </div>
+                
+                <div class="detail-item">
+                    <strong>Base:</strong> ${order.base} - $${order.basePrice.toFixed(2)}
+                </div>
+                
+                <div class="detail-item">
+                    <strong>Fruits:</strong> ${fruitsList}
+                </div>
+                
+                <div class="detail-item">
+                    <strong>Protein & Boosts:</strong> ${boostsList}
+                </div>
+                
+                <div class="detail-item">
+                    <strong>Sweetener:</strong> ${order.sweetener} ${order.sweetenerPrice > 0 ? '- $' + order.sweetenerPrice.toFixed(2) : ''}
+                </div>
+                
+                <div class="detail-item">
+                    <strong>Ice Level:</strong> ${order.iceLevel}
+                </div>
+                
+                <div class="price-summary">
+                    <h4>Total Price</h4>
+                    <div class="total-price">$${order.totalPrice.toFixed(2)}</div>
+                </div>
+            </div>
+        `;
+        
+        smoothieOutput.innerHTML = orderHTML;
+    }
+    
