@@ -24,3 +24,14 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Please select at least one fruit!');
             return;
         }
+
+        // Get form data
+        const formData = new FormData(form);
+        const smoothieOrder = processSmoothieOrder(formData);
+        
+        // Display the order
+        displaySmoothieOrder(smoothieOrder);
+        
+        // Scroll to output section on mobile
+        smoothieOutput.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
