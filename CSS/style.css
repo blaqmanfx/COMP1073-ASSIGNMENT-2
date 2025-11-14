@@ -1,0 +1,319 @@
+/* General Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+/* Main Container */
+.Container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.tagline {
+    font-size: 1.2em;
+    opacity: 0.95;
+}
+
+/* Content Wrapper */
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    padding: 40px;
+}
+
+/* Section Styles */
+.order-section,
+.output-section {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.order-section h2,
+.output-section h2 {
+    color: #764ba2;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+    border-bottom: 3px solid #f093fb;
+    padding-bottom: 10px;
+}
+
+/* Form Styles */
+#smoothieForm {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #555;
+    font-size: 1.1em;
+}
+
+/* Input and Select Styles */
+select,
+input[type="text"] {
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+select:focus,
+input[type="text"]:focus {
+    outline: none;
+    border-color: #764ba2;
+    box-shadow: 0 0 0 3px rgba(118, 75, 162, 0.1);
+}
+
+/* Checkbox Grid */
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.checkbox-label:hover {
+    border-color: #764ba2;
+    background: #f8f4fc;
+    transform: translateY(-2px);
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"]:checked + span {
+    color: #764ba2;
+    font-weight: 600;
+}
+
+/* Radio Group */
+.radio-group {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.radio-label:hover {
+    border-color: #764ba2;
+    background: #f8f4fc;
+}
+
+.radio-label input[type="radio"] {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.radio-label input[type="radio"]:checked ~ span {
+    color: #764ba2;
+    font-weight: 600;
+}
+
+/* Submit Button */
+.order-button {
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
+}
+
+.order-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(245, 87, 108, 0.5);
+}
+
+.order-button:active {
+    transform: translateY(-1px);
+}
+
+/* Output Section */
+.smoothie-display {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    min-height: 300px;
+    border: 2px dashed #ddd;
+}
+
+.placeholder-text {
+    text-align: center;
+    color: #999;
+    font-size: 1.1em;
+    padding: 50px 20px;
+}
+
+.smoothie-details {
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.smoothie-details h3 {
+    color: #764ba2;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.detail-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #f8f9fa;
+    border-left: 4px solid #f093fb;
+    border-radius: 5px;
+}
+
+.detail-item strong {
+    color: #555;
+}
+
+.price-summary {
+    margin-top: 20px;
+    padding: 20px;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.price-summary h4 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+
+.total-price {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .content-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    .checkbox-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .Container {
+        border-radius: 10px;
+    }
+
+    header {
+        padding: 30px 15px;
+    }
+
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    .content-wrapper {
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .order-section,
+    .output-section {
+        padding: 20px;
+    }
+}
