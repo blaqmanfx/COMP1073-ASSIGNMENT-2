@@ -80,4 +80,22 @@ document.addEventListener('DOMContentLoaded', function() {
         // Get ice level
         const iceLevel = document.querySelector('input[name="ice"]:checked').value;
 
+          // Get customer name
+        const customerName = formData.get('customerName');
+        
+        return {
+            customerName: customerName,
+            size: capitalizeWords(size.value),
+            sizePrice: parseFloat(sizeOption.dataset.price),
+            base: capitalizeWords(base.value),
+            basePrice: parseFloat(baseOption.dataset.price),
+            fruits: fruits,
+            boosts: boosts,
+            sweetener: sweetener.value === 'none' ? 'None' : capitalizeWords(sweetener.value),
+            sweetenerPrice: sweetener.value === 'none' ? 0 : parseFloat(sweetenerOption.dataset.price),
+            iceLevel: capitalizeWords(iceLevel),
+            totalPrice: totalPrice
+        };
+    }
+
         
