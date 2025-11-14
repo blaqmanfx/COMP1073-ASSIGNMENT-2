@@ -35,3 +35,12 @@ document.addEventListener('DOMContentLoaded', function() {
         // Scroll to output section on mobile
         smoothieOutput.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
+
+    // Function to process smoothie order
+function processSmoothieOrder(formData) {
+        const size = document.getElementById('size');
+        const base = document.getElementById('base');
+        const sweetener = document.getElementById('sweetener');
+        const fruits = formData.getAll('fruits');
+
+        
