@@ -72,4 +72,12 @@ document.addEventListener('DOMContentLoaded', function() {
             totalPrice += parseFloat(boost.dataset.price);
         });
 
+         // Add sweetener price if not "none"
+        if (sweetener.value !== 'none') {
+            totalPrice += parseFloat(sweetenerOption.dataset.price);
+        }
+        
+        // Get ice level
+        const iceLevel = document.querySelector('input[name="ice"]:checked').value;
+
         
