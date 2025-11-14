@@ -17,3 +17,10 @@ document.addEventListener('DOMContentLoaded', function() {
  // Handle form submission
     form.addEventListener('submit', function(e) {
         e.preventDefault();
+
+        // Validate that at least one fruit is selected
+        const checkedFruits = document.querySelectorAll('input[name="fruits"]:checked');
+        if (checkedFruits.length === 0) {
+            alert('Please select at least one fruit!');
+            return;
+        }
