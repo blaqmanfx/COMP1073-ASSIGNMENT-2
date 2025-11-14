@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const size = document.getElementById('size');
             const base = document.getElementById('base');
             const sweetener = document.getElementById('sweetener');
-            const fruits = formData.getAll('fruits');
+           
             
              // Get selected options with prices
         const sizeOption = size.options[size.selectedIndex];
@@ -51,3 +51,25 @@ document.addEventListener('DOMContentLoaded', function() {
         // Calculate base price
         let totalPrice = parseFloat(sizeOption.dataset.price);
         totalPrice += parseFloat(baseOption.dataset.price);
+
+        // Get fruits
+        const fruits = [];
+        document.querySelectorAll('input[name="fruits"]:checked').forEach(fruit => {
+            fruits.push({
+                name: capitalizeWords(fruit.value),
+                price: parseFloat(fruit.dataset.price)
+            });
+            totalPrice += parseFloat(fruit.dataset.price);
+        });
+        
+        // Get boosts
+        const boosts = [];
+        document.querySelectorAll('input[name="boosts"]:checked').forEach(boost => {
+            boosts.push({
+                name: capitalizeWords(boost.value),
+                price: parseFloat(boost.dataset.price)
+            });
+            totalPrice += parseFloat(boost.dataset.price);
+        });
+
+        
