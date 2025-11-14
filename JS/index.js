@@ -14,4 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }); 
-
+ // Handle form submission
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
