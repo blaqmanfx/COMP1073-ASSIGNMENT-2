@@ -37,10 +37,17 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Function to process smoothie order
-function processSmoothieOrder(formData) {
-        const size = document.getElementById('size');
-        const base = document.getElementById('base');
-        const sweetener = document.getElementById('sweetener');
-        const fruits = formData.getAll('fruits');
-
+        function processSmoothieOrder(formData) {
+            const size = document.getElementById('size');
+            const base = document.getElementById('base');
+            const sweetener = document.getElementById('sweetener');
+            const fruits = formData.getAll('fruits');
+            
+             // Get selected options with prices
+        const sizeOption = size.options[size.selectedIndex];
+        const baseOption = base.options[base.selectedIndex];
+        const sweetenerOption = sweetener.options[sweetener.selectedIndex];
         
+        // Calculate base price
+        let totalPrice = parseFloat(sizeOption.dataset.price);
+        totalPrice += parseFloat(baseOption.dataset.price);
